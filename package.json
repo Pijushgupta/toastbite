@@ -4,13 +4,19 @@
   "description": "A simple Vue toast notification library",
   "main": "dist/toastbite.cjs.js",
   "module": "dist/toastbite.es.js",
+  "browser": "dist/toastbite.umd.js",
   "scripts": {
     "build": "vite build",
     "dev": "vite"
   },
   "exports": {
-    "import": "./dist/toastbite.es.js",
-    "require": "./dist/toastbite.cjs.js"
+    ".":{
+      "import": "./dist/toastbite.es.js",
+      "require": "./dist/toastbite.cjs.js",
+      "default": "./dist/toastbite.umd.js"
+    },
+    "./dist/toastbite.css":"./dist/toastbite.css"
+    
   },
   "files": [
     "dist",

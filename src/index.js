@@ -1,14 +1,12 @@
 import '../styles/Toastbite.css'
-import Toast from "./components/Toast.vue";
-import Toastify from "./components/Toastify.vue";
+import ToastTemplate from "./components/ToastTemplate.vue";
 import { useToast } from "./components/useToast.js";
+import { createApp } from 'vue';
 
-export { Toast, Toastify, useToast };
+const div = document.createElement("div");
+document.body.appendChild(div);
+app = createApp(ToastTemplate);
+app.mount(div);
 
-export default {
-  install(app) {
-    app.component("Toast", Toast);
-    app.component("Toastify", Toastify);
-    app.config.globalProperties.$toast = useToast();
-  },
-};
+export {useToast}
+

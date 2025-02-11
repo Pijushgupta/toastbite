@@ -1,7 +1,7 @@
 <!-- Toast.vue -->
 <!-- Toast wrapper to host Toastify html -->
 <template>
-    <Teleport to="body">
+    
         <div>
             <div>
                 <!-- top-left -->
@@ -31,5 +31,5 @@
                 <div class="toast-bottom-right bottom-right"></div>
             </div>
         </div>
-    </Teleport>
+  
 </template>

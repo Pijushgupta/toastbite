@@ -17,6 +17,7 @@ export default defineConfig({
       external: ["vue"], // Vue is a peer dependency
       output: {
         globals: {
+          exports: "named",
           vue: "Vue",
         },
       },
