@@ -5,6 +5,7 @@ import { reactive } from "vue";
 const toasts = reactive([]);
 
 function addToast({ location, title, content, icon,iconColor,timeout = 2000}) {
+    timeout = timeout === true ? 2000 : (typeof timeout === "number" && !isNaN(timeout) ? timeout : 2000)
     toasts.push({
         id: Date.now(),
         iconColor:iconColor?iconColor:'toast-blue dark:toast-blue',
@@ -16,7 +17,7 @@ function addToast({ location, title, content, icon,iconColor,timeout = 2000}) {
     });
 
     // Auto-remove after 5s
-    if(toasts[0]?.timeout !== false ){
+    if(toasts[0]?.timeout !== false){
         setTimeout(() => {
             removeToast(toasts[0]?.id);
         },toasts[0].timeout);

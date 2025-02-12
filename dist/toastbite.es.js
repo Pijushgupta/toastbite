@@ -1,67 +1,67 @@
-import { createElementBlock as d, openBlock as l, createStaticVNode as b, reactive as g, Fragment as _, renderList as k, unref as p, createBlock as T, Teleport as x, createElementVNode as o, normalizeClass as w, toDisplayString as u, createVNode as m, createApp as C } from "vue";
-const y = (e, t) => {
-  const n = e.__vccOpts || e;
-  for (const [c, s] of t)
-    n[c] = s;
-  return n;
+import { createElementBlock as d, openBlock as l, createStaticVNode as b, reactive as g, Fragment as m, renderList as k, unref as v, createBlock as T, Teleport as x, createElementVNode as e, normalizeClass as w, toDisplayString as u, createVNode as _, createApp as y } from "vue";
+const C = (n, o) => {
+  const s = n.__vccOpts || n;
+  for (const [c, i] of o)
+    s[c] = i;
+  return s;
 }, M = {};
-function B(e, t) {
-  return l(), d("div", null, t[0] || (t[0] = [
+function N(n, o) {
+  return l(), d("div", null, o[0] || (o[0] = [
     b('<div><div class="toast-top-left top-left"></div></div><div><div class="toast-top-center top-center"></div></div><div><div class="toast-top-right top-right"></div></div><div><div class="toast-bottom-left bottom-left"></div></div><div><div class="toast-bottom-center bottom-center"></div></div><div><div class="toast-bottom-right bottom-right"></div></div>', 6)
   ]));
 }
-const $ = /* @__PURE__ */ y(M, [["render", B]]), r = g([]);
-function E({ location: e, title: t, content: n, icon: c, iconColor: s, timeout: i = 2e3 }) {
+const B = /* @__PURE__ */ C(M, [["render", N]]), r = g([]);
+function $({ location: n, title: o, content: s, icon: c, iconColor: i, timeout: t = 2e3 }) {
   var a;
-  r.push({
+  t = t === !0 ? 2e3 : typeof t == "number" && !isNaN(t) ? t : 2e3, r.push({
     id: Date.now(),
-    iconColor: s || "toast-blue dark:toast-blue",
-    location: ["top-left", "top-right", "top-center", "bottom-left", "bottom-right", "bottom-center"].includes(e) ? `.${e}` : ".bottom-right",
-    title: t,
-    content: n,
+    iconColor: i || "toast-blue dark:toast-blue",
+    location: ["top-left", "top-right", "top-center", "bottom-left", "bottom-right", "bottom-center"].includes(n) ? `.${n}` : ".bottom-right",
+    title: o,
+    content: s,
     icon: c,
-    timeout: i
+    timeout: t
   }), ((a = r[0]) == null ? void 0 : a.timeout) !== !1 && setTimeout(() => {
-    var v;
-    f((v = r[0]) == null ? void 0 : v.id);
+    var p;
+    f((p = r[0]) == null ? void 0 : p.id);
   }, r[0].timeout);
 }
-function f(e) {
-  const t = r.findIndex((n) => n.id === e);
-  t !== -1 && r.splice(t, 1);
+function f(n) {
+  const o = r.findIndex((s) => s.id === n);
+  o !== -1 && r.splice(o, 1);
 }
-function H() {
-  return { toasts: r, addToast: E, removeToast: f };
+function E() {
+  return { toasts: r, addToast: $, removeToast: f };
 }
-const L = {
+const H = {
   id: "toast-default",
   class: "toast-card",
   role: "alert"
-}, N = ["innerHTML"], V = { class: "toast-title" }, z = { class: "toast-content" }, D = ["onClick"], S = {
+}, L = ["innerHTML"], V = { class: "toast-title" }, z = { class: "toast-content" }, D = ["onClick"], S = {
   __name: "Toastify",
-  setup(e) {
-    const { removeToast: t, toasts: n } = H();
-    return (c, s) => (l(!0), d(_, null, k(p(n), (i) => (l(), T(x, {
-      key: i.id,
-      to: i.location
+  setup(n) {
+    const { removeToast: o, toasts: s } = E();
+    return (c, i) => (l(!0), d(m, null, k(v(s), (t) => (l(), T(x, {
+      key: t.id,
+      to: t.location
     }, [
-      o("div", L, [
-        o("div", {
-          class: w([i.iconColor, "toast-icon-wrap"]),
-          innerHTML: i.icon
-        }, null, 10, N),
-        o("div", null, [
-          o("div", V, u(i.title), 1),
-          o("div", z, u(i.content), 1)
+      e("div", H, [
+        e("div", {
+          class: w([t.iconColor, "toast-icon-wrap"]),
+          innerHTML: t.icon
+        }, null, 10, L),
+        e("div", null, [
+          e("div", V, u(t.title), 1),
+          e("div", z, u(t.content), 1)
         ]),
-        o("button", {
+        e("button", {
           type: "button",
           class: "toast-close",
-          onClick: (a) => p(t)(i.id),
+          onClick: (a) => v(o)(t.id),
           "aria-label": "Close"
-        }, s[0] || (s[0] = [
-          o("span", { class: "sr-only" }, "Close", -1),
-          o("svg", {
+        }, i[0] || (i[0] = [
+          e("span", { class: "sr-only" }, "Close", -1),
+          e("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             width: "24",
             height: "24",
@@ -73,13 +73,13 @@ const L = {
             "stroke-linejoin": "round",
             class: "icon icon-tabler icons-tabler-outline icon-tabler-x"
           }, [
-            o("path", {
+            e("path", {
               stroke: "none",
               d: "M0 0h24v24H0z",
               fill: "none"
             }),
-            o("path", { d: "M18 6l-12 12" }),
-            o("path", { d: "M6 6l12 12" })
+            e("path", { d: "M18 6l-12 12" }),
+            e("path", { d: "M6 6l12 12" })
           ], -1)
         ]), 8, D)
       ])
@@ -87,16 +87,16 @@ const L = {
   }
 }, j = {
   __name: "ToastTemplate",
-  setup(e) {
-    return (t, n) => (l(), d(_, null, [
-      m($),
-      m(S)
+  setup(n) {
+    return (o, s) => (l(), d(m, null, [
+      _(B),
+      _(S)
     ], 64));
   }
 }, h = document.createElement("div");
 document.body.appendChild(h);
-app = C(j);
+app = y(j);
 app.mount(h);
 export {
-  H as useToast
+  E as useToast
 };
